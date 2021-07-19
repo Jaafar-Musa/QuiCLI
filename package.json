@@ -1,0 +1,26 @@
+{
+  "name": "quickui",
+  "version": "1.0.0",
+  "description": "Quick frontend scaffold",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaafar-Musa/QuickUI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaafar-Musa/QuickUI/issues"
+  },
+  "homepage": "https://github.com/Jaafar-Musa/QuickUI#readme",
+  "dependencies": {
+    "commander": "^8.0.0",
+    "conf": "^10.0.1"
+  },
+  "bin": {
+    "quickui": "index.js"
+  }
+}
