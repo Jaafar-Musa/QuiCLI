@@ -18,7 +18,7 @@ const selectFramework = (framework) => {
             conf.set("framework", "react")
             console.log("React is selected")
         }else{
-            console.log(conf.get('framework') + "is selected")
+            console.log(conf.get('framework') + " is selected")
         }
     }
 }
