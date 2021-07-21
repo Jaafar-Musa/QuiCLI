@@ -1,0 +1,6 @@
+{
+    "files": {
+        "BurgerIcon" : { "combined" : false, "folder": "icons", "scss" : true, "frameworks" : ["react"] , "description" : "test"},
+        "Navbar" : { "combined" : true, "requiredComponents" : ["BurgerIcon"], "folder":"inputs", "scss":true, "frameworks" : ["react"]}
+        }
+}
