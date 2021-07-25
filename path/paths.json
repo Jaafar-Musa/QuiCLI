@@ -1,6 +1,8 @@
 {
-    "files": {
-        "BurgerIcon" : { "combined" : false, "folder": "icons", "scss" : true, "frameworks" : ["react"] , "description" : "test"},
-        "Navbar" : { "combined" : true, "requiredComponents" : ["BurgerIcon"], "folder":"inputs", "scss":true, "frameworks" : ["react"]}
-        }
+    "react": {
+        "BurgerIcon" : { "folder": "Icons", "scss" : true, "description" : "BurgerIcon", "extensions":["tsx" , "jsx"]},
+        "Navbar" : { "requiredComponents" : ["BurgerIcon"], "folder":"Navigation", "scss":true, "extensions":["tsx" , "jsx"], "description":"A template navbar"},
+        "Button" : { "folder":"Inputs", "scss":true, "extensions":["tsx" , "jsx"], "description":"A template Button"},
+        "axios" :  {"folder":"Api","scss":false, "description":"Template axios", "extensions":["js","ts"]}
+    }
 }

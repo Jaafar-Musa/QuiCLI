@@ -1,6 +1,6 @@
 const { Command } = require("commander");
 const program = new Command()
-const {selectLanguage , newComp, selectFramework} = require("../actions")
+const {selectLanguage , newComp, selectFramework, info} = require("../actions")
 
 function main(){
     program.command('language [lang]')
@@ -10,6 +10,10 @@ function main(){
     program.command('framework [framework]')
         .description('select a framework/library')
         .action(selectFramework)
+
+    program.command('info [framework]')
+        .description('Get the components available the the framework')
+        .action(info)
 
     program.command('new <components...>')
             .description("Clone components")
