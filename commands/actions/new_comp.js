@@ -15,47 +15,47 @@ const createComponent = (components) => {
   console.log("Done");
 };
 async function componentExists(component) {
-  // get stored variables
-  const framework = conf.get("framework");
   const language = conf.get("language");
-  let paths = pathing[framework];
-  if (paths[component]) {
-      if(paths[component]["requiredComponents"]){
-          for(i = 0; i < paths[component]["requiredComponents"].length; i++){
-              await componentExists(paths[component]["requiredComponents"][i]);
-          }
+  // GET THE REQUIRED COMPONENTS FOR THIS COMPONENT TO BE ABLE TO WORK
+  if (pathing[component]) {
+    if (pathing[component]["requiredComponents"]) {
+      for (i = 0; i < pathing[component]["requiredComponents"].length; i++) {
+        await componentExists(pathing[component]["requiredComponents"][i]);
       }
+    }
+    //GET THE EXTENSION USED FOR THE FILE
     let compatibleExtension;
-    // get the extension used for the file
-    paths[component]["extensions"].forEach((ex) => {
+    pathing[component]["extensions"].forEach((ex) => {
       if (ex.includes(language)) {
         compatibleExtension = ex;
       }
     });
+
     let path_to_component = path.join(
       componentsLocation,
-      framework,
+      "react",
       language,
-      paths[component].folder,
+      pathing[component].folder,
       component + "." + compatibleExtension
     );
     try {
+      // MAKE SURE THE PATH EXISTS
       if (fs.existsSync(path_to_component)) {
         await cloneComponent(
           path_to_component,
-          paths[component].folder,
+          pathing[component].folder,
           component + "." + compatibleExtension
         );
-        if (paths[component]["scss"]) {
-          // Adding the scss
+        if (pathing[component]["scss"]) {
+          // CLONE THE SCSS FILE TOO IF IT EXISTS
           await cloneComponent(
             path.join(
               componentsLocation,
               "scss",
-              paths[component].folder,
+              pathing[component].folder,
               "_" + component + "." + "scss"
             ),
-            paths[component].folder,
+            pathing[component].folder,
             "_" + component + "." + "scss"
           );
         }
@@ -63,7 +63,7 @@ async function componentExists(component) {
         console.log("Error creating " + component);
       }
     } catch (e) {
-      console.log("ERROORRR", e);
+      console.log("Error", e);
     }
   } else {
     console.log(component + " Doesn't Exist");
@@ -119,3 +119,5 @@ async function cloneComponent(componentPath, folderName, file) {
 module.exports = createComponent;
 
 // TODO file exists but not scss/ vice versa
+
+// new option -r rename

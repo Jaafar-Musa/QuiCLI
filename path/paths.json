@@ -1,8 +1,27 @@
 {
-    "react": {
-        "BurgerIcon" : { "folder": "Icons", "scss" : true, "description" : "BurgerIcon", "extensions":["tsx" , "jsx"]},
-        "Navbar" : { "requiredComponents" : ["BurgerIcon"], "folder":"Navigation", "scss":true, "extensions":["tsx" , "jsx"], "description":"A template navbar"},
-        "Button" : { "folder":"Inputs", "scss":true, "extensions":["tsx" , "jsx"], "description":"A template Button"},
-        "axios" :  {"folder":"Api","scss":false, "description":"Template axios", "extensions":["js","ts"]}
-    }
+  "BurgerIcon": {
+    "folder": "Icons",
+    "scss": true,
+    "description": "a BurgerIcon test test test test test test test test test test test test test test test test test test test test test test test test test test test test test",
+    "extensions": ["tsx", "jsx"]
+  },
+  "Navbar": {
+    "requiredComponents": ["BurgerIcon"],
+    "folder": "Navigation",
+    "scss": true,
+    "extensions": ["tsx", "jsx"],
+    "description": "A template navbar"
+  },
+  "Button": {
+    "folder": "Inputs",
+    "scss": true,
+    "extensions": ["tsx", "jsx"],
+    "description": "A template Button"
+  },
+  "Axios": {
+    "folder": "Api",
+    "scss": false,
+    "description": "Template axios",
+    "extensions": ["js", "ts"]
+  }
 }

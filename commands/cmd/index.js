@@ -1,28 +1,29 @@
 const { Command } = require("commander");
-const program = new Command()
-const {selectLanguage , newComp, selectFramework, info} = require("../actions")
+const program = new Command();
+const { selectLanguage, newComp, info, init} = require("../actions");
 
-function main(){
-    program.command('language [lang]')
-        .description('select a language')
-        .action(selectLanguage)
+function main() {
+  program
+    .command("language [lang]")
+    .description("select a language")
+    .action(selectLanguage);
 
-    program.command('framework [framework]')
-        .description('select a framework/library')
-        .action(selectFramework)
+  program
+    .command("info [keyword]")
+    .description("Get the components available the the framework")
+    .action(info);
 
-    program.command('info [framework]')
-        .description('Get the components available the the framework')
-        .action(info)
+  program
+    .command("init")
+    .description("Set up a folder structure in your cwd")
+    .action(init);
 
-    program.command('new <components...>')
-            .description("Clone components")
-            .action(newComp)
+  program
+    .command("new <components...>")
+    .description("Clone components")
+    .action(newComp);
 
-    // todo add -e for vim control?
-    // todo components command to log all components with a xmall description
-    
-    program.parse()
+  program.parse();
 }
 
-module.exports = main
+module.exports = main;
